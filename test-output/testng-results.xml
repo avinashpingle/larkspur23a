@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-02-18T05:57:34Z" name="Default suite" finished-at="2024-02-18T05:57:46Z" duration-ms="11900">
+    <groups>
+    </groups>
+    <test started-at="2024-02-18T05:57:34Z" name="Default test" finished-at="2024-02-18T05:57:46Z" duration-ms="11900">
+      <class name="com.trinity.TestCases">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.trinity.TestCases@1ed4ae0f]" started-at="2024-02-18T05:57:34Z" name="setup" finished-at="2024-02-18T05:57:43Z" duration-ms="9393" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyIfLastNameFieldIsRequiredUsingPOM()[pri:0, instance:com.trinity.TestCases@1ed4ae0f]" started-at="2024-02-18T05:57:43Z" name="verifyIfLastNameFieldIsRequiredUsingPOM" finished-at="2024-02-18T05:57:46Z" duration-ms="2365" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyIfLastNameFieldIsRequiredUsingPOM -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.trinity.TestCases@1ed4ae0f]" started-at="2024-02-18T05:57:46Z" name="tearDown" finished-at="2024-02-18T05:57:46Z" duration-ms="119" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.trinity.TestCases -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
