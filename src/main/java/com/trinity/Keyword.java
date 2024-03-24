@@ -1,11 +1,15 @@
 package com.trinity;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -16,23 +20,34 @@ import com.trinity.exceptions.InvalidBrowserNameError;
 
 public class Keyword {
 
-	public RemoteWebDriver driver;
+	public static RemoteWebDriver driver;
 	public FluentWait<WebDriver> wait;
 
-	public void openBrowser(String browserName) {
+	private static final Logger LOG = Logger.getLogger(Keyword.class);
 
-		if (browserName.equalsIgnoreCase("Chrome")) {
-			driver = new ChromeDriver();
-			System.out.println("Launching Chrome browser");
-		} else if (browserName.equalsIgnoreCase("Firefox")) {
-			driver = new FirefoxDriver();
-			System.out.println("Launching Firefox browser");
-		} else if (browserName.equalsIgnoreCase("Safari")) {
-			driver = new SafariDriver();
-			System.out.println("Launching Safari browser");
+	public void openBrowser(String browserName) throws MalformedURLException {
+
+		Config conf = new Config();
+		if (conf.executeOnGrid()) {
+			// Execute on Grid
+			LOG.info("Executing on Grid........!");
+			ChromeOptions option = new ChromeOptions();
+			driver = new RemoteWebDriver(new URL("http://192.168.0.101:4444"),option);
 		} else {
-			System.err.println("Invalid browser name");
-			throw new InvalidBrowserNameError(browserName);
+
+			if (browserName.equalsIgnoreCase("Chrome")) {
+				driver = new ChromeDriver();
+				LOG.info("Launching Chrome browser");
+			} else if (browserName.equalsIgnoreCase("Firefox")) {
+				driver = new FirefoxDriver();
+				LOG.info("Launching Firefox browser");
+			} else if (browserName.equalsIgnoreCase("Safari")) {
+				driver = new SafariDriver();
+				LOG.info("Launching Safari browser");
+			} else {
+				LOG.info("Invalid browser name");
+				throw new InvalidBrowserNameError(browserName);
+			}
 		}
 
 		wait = new FluentWait<WebDriver>(driver);

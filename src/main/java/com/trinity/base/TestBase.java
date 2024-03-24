@@ -12,7 +12,7 @@ public class TestBase {
 	@BeforeMethod
 	public void setup() {
 		Config config = new Config();
-		keyword.openBrowser(config.getBrowserName());
+		//keyword.openBrowser(config.getBrowserName());
 		keyword.launchUrl(config.getAppUrl());
 	}
 	
