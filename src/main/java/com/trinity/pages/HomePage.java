@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.trinity.Keyword;
 import com.trinity.base.TestBase;
 
 public class HomePage {
@@ -43,7 +44,7 @@ public class HomePage {
 	public WebElement lastNameError;
 
 	public HomePage() {
-		PageFactory.initElements(TestBase.keyword.driver, this);
+		PageFactory.initElements(Keyword.driver, this);
 	}
 
 	public void clickOnRegisterLink() {
